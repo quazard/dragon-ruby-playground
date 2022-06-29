@@ -6,6 +6,7 @@ class BasicGame
   def tick
     defaults
     render
+    move_cube
   end
 
   protected
@@ -20,7 +21,25 @@ class BasicGame
       end
     end
 
+    def move_cube
+      # move on y axis
+      if inputs.up
+        state.cubes.first.y += DISTANCE_TO_MOVE
+      elsif inputs.down
+        state.cubes.first.y -= DISTANCE_TO_MOVE
+      end
+
+      # move on x axis
+      if inputs.left
+        state.cubes.first.x -= DISTANCE_TO_MOVE
+      elsif inputs.right
+        state.cubes.first.x += DISTANCE_TO_MOVE
+      end
+    end
+
   private
+
+    DISTANCE_TO_MOVE = 10
 
     def cube
       {
