@@ -1,0 +1,6 @@
+#!/bin/sh
+# move into this project folder
+cd "`dirname "$0"`"
+
+# dragonruby binary must be part of PATH
+exec dragonruby .
